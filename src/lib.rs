@@ -11,5 +11,7 @@ fn handle_spin_hello_rs(req: Request) -> Result<Response> {
     Ok(http::Response::builder()
         .status(200)
         .header("foo", "bar")
-        .body(Some("Hello, Fermyon".into()))?)
+        .body(Some(
+            "Hello, Fermyon ... this was easy ... & 'watch' enables hot reload".into(),
+        ))?)
 }
