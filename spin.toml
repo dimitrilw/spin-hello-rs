@@ -1,0 +1,16 @@
+spin_manifest_version = "1"
+authors = ["Dimitri <5898931+dimitrilw@users.noreply.github.com>"]
+description = "quick test of Spin & Rust"
+name = "spin-hello-rs"
+trigger = { type = "http", base = "/" }
+version = "0.1.0"
+
+[[component]]
+id = "spin-hello-rs"
+source = "target/wasm32-wasi/release/spin_hello_rs.wasm"
+allowed_http_hosts = []
+[component.trigger]
+route = "/..."
+[component.build]
+command = "cargo build --target wasm32-wasi --release"
+watch = ["src/**/*.rs", "Cargo.toml"]
